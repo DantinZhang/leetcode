@@ -1,1 +1,26 @@
-
+### 1.暴力求解，时间复杂度O(n2)
+```javascript
+var minSubArrayLen = function(target, nums) {
+    let result = Number.MAX_VALUE; //获取已知的最大值
+    //外层循环，以每一个元素作为起点去找目标值
+    for(let i = 0; i < nums.length; i++) {
+        let sum = 0;
+        //内层循环，寻找目标值
+        for(let j = i; j < nums.length; j++) {
+            sum += nums[j];
+            if (sum >= target) {
+                result = Math.min(result, j - i + 1); //和上一个长度比较，取较小的值
+                break;
+            }
+        }
+    }
+    // 如果最后result没变化，那么说明没有比target大的组合
+    return result === Number.MAX_VALUE ? 0 : result;
+};
+```
+### 2.滑动窗口，时间复杂度O(n)
+```javascript
+var minSubArrayLen = function(target, nums) {
+    
+};
+```
